@@ -5,6 +5,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.LayoutBoundsHolder
 import androidx.compose.ui.layout.onVisibilityChanged
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -15,6 +16,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun ImageCard(
     imageItem: ImageItem,
     position: Int,
+    viewport: LayoutBoundsHolder,
     onVisibilityLogged: (String, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -23,7 +25,8 @@ fun ImageCard(
             .fillMaxWidth()
             .onVisibilityChanged(
                 minDurationMs = 1000L, // 1秒以上可視状態が継続
-                minFractionVisible = 0.5f // 50%以上表示
+                minFractionVisible = 0.5f, // 50%以上表示
+                viewportBounds = viewport,
             ) { visible ->
                 if (visible) {
                     onVisibilityLogged(imageItem.id, position)
@@ -62,6 +65,7 @@ private fun ImageCardPreview() {
                 downloadUrl = "https://picsum.photos/id/1/600/400"
             ),
             position = 0,
+            viewport = LayoutBoundsHolder(),
             onVisibilityLogged = { _, _ -> }
         )
     }

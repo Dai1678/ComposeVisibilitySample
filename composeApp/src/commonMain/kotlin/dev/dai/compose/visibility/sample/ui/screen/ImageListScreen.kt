@@ -7,6 +7,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.LayoutBoundsHolder
+import androidx.compose.ui.layout.layoutBounds
 import androidx.compose.ui.unit.dp
 import dev.dai.compose.visibility.sample.ui.component.ErrorView
 import dev.dai.compose.visibility.sample.ui.component.ImageCard
@@ -38,6 +40,7 @@ fun ImageListScreen(
                 is ImageListUiState.Loading -> {
                     LoadingView()
                 }
+
                 is ImageListUiState.Success -> {
                     if (state.images.isEmpty()) {
                         Text(
@@ -45,8 +48,13 @@ fun ImageListScreen(
                             modifier = Modifier.align(Alignment.Center)
                         )
                     } else {
+                        val viewport = remember { LayoutBoundsHolder() }
+
                         LazyColumn(
-                            modifier = Modifier.fillMaxSize(),
+                            modifier =
+                                Modifier
+                                    .fillMaxSize()
+                                    .layoutBounds(viewport),
                             contentPadding = PaddingValues(16.dp),
                             verticalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
@@ -58,6 +66,7 @@ fun ImageListScreen(
                                 ImageCard(
                                     imageItem = imageItem,
                                     position = index + 1, // 1始まり
+                                    viewport = viewport,
                                     onVisibilityLogged = { id, pos ->
                                         viewModel.onImageVisible(id, pos)
                                     }
@@ -66,6 +75,7 @@ fun ImageListScreen(
                         }
                     }
                 }
+
                 is ImageListUiState.Error -> {
                     ErrorView(
                         message = state.message,
