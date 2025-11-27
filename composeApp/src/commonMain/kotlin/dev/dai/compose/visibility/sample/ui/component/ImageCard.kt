@@ -9,6 +9,7 @@ import androidx.compose.ui.layout.onVisibilityChanged
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import dev.dai.compose.visibility.sample.domain.model.ImageItem
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun ImageCard(
@@ -45,5 +46,23 @@ fun ImageCard(
                 style = MaterialTheme.typography.bodyLarge
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun ImageCardPreview() {
+    MaterialTheme {
+        ImageCard(
+            imageItem = ImageItem(
+                id = "1",
+                author = "John Doe",
+                width = 600,
+                height = 400,
+                downloadUrl = "https://picsum.photos/id/1/600/400"
+            ),
+            position = 0,
+            onVisibilityLogged = { _, _ -> }
+        )
     }
 }
