@@ -1,0 +1,20 @@
+package dev.dai.compose.visibility.sample.fake
+
+import dev.dai.compose.visibility.sample.domain.model.ImageItem
+import dev.dai.compose.visibility.sample.domain.repository.ImageRepository
+
+class FakeImageRepository : ImageRepository {
+    var result: Result<List<ImageItem>> = Result.success(emptyList())
+
+    override suspend fun getImages(page: Int, limit: Int): Result<List<ImageItem>> {
+        return result
+    }
+
+    fun setSuccessResult(images: List<ImageItem>) {
+        result = Result.success(images)
+    }
+
+    fun setErrorResult(error: Throwable) {
+        result = Result.failure(error)
+    }
+}
