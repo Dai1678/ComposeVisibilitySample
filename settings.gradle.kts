@@ -34,3 +34,4 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":core:common")
+include(":core:domain:image")

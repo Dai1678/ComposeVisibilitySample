@@ -1,7 +1,7 @@
-package dev.dai.compose.visibility.sample.domain.usecase
+package dev.dai.compose.visibility.sample.core.domain.image.usecase
 
-import dev.dai.compose.visibility.sample.domain.model.MicrosecondTimestamp
-import dev.dai.compose.visibility.sample.domain.model.VisibilityLog
+import dev.dai.compose.visibility.sample.core.domain.image.model.MicrosecondTimestamp
+import dev.dai.compose.visibility.sample.core.domain.image.model.VisibilityLog
 import kotlin.time.Clock.*
 import kotlin.time.ExperimentalTime
 

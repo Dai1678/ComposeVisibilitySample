@@ -1,4 +1,4 @@
-package dev.dai.compose.visibility.sample.domain.model
+package dev.dai.compose.visibility.sample.core.domain.image.model
 
 import kotlin.jvm.JvmInline
 

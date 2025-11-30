@@ -1,4 +1,4 @@
-package dev.dai.compose.visibility.sample.domain.usecase
+package dev.dai.compose.visibility.sample.core.domain.image.usecase
 
 import dev.dai.compose.visibility.sample.TestData
 import dev.dai.compose.visibility.sample.fake.FakeImageRepository

@@ -7,8 +7,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DomainConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        pluginManager.apply("org.jetbrains.kotlin.plugin.serialization")
-
         extensions.configure<KotlinMultiplatformExtension> {
             sourceSets.apply {
                 named("commonMain") {
