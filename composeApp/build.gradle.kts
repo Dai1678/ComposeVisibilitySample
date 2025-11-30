@@ -31,7 +31,6 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
 
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
@@ -41,10 +40,6 @@ kotlin {
             implementation(projects.core.domain.image)
             implementation(projects.core.data.image)
             implementation(projects.feature.imagelist)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
         }
     }
 }
@@ -74,8 +69,4 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
 }

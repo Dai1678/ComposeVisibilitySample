@@ -8,12 +8,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(projects.core.common)
-            implementation(libs.kotlinx.serialization.json)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
-            implementation(libs.kotlinx.coroutines.test)
         }
     }
 }

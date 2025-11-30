@@ -1,8 +1,5 @@
 package dev.dai.compose.visibility.sample.core.domain.image.model
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class VisibilityLog(
     val id: String,
     val position: Int,

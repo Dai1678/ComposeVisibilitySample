@@ -6,7 +6,6 @@ import dev.dai.compose.visibility.sample.feature.imagelist.TestData
 import dev.dai.compose.visibility.sample.feature.imagelist.fake.FakeImageRepository
 import dev.dai.compose.visibility.sample.feature.imagelist.util.MainDispatcherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import kotlin.test.BeforeTest

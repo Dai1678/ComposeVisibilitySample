@@ -29,6 +29,7 @@ class FeatureConventionPlugin : Plugin<Project> {
                 named("androidUnitTest") {
                     dependencies {
                         implementation(libs.library("junit"))
+                        implementation(libs.library("kotlin-test"))
                         implementation(libs.library("kotlinx-coroutines-test"))
                     }
                 }

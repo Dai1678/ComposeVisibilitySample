@@ -11,7 +11,7 @@ class ImageRepositoryImpl(
     override suspend fun getImages(page: Int, limit: Int): Result<List<ImageItem>> =
         try {
             val response = remoteDataSource.fetchImages(page, limit)
-            Result.success(response.map { it.toDomainModel() })
+            Result.success(response.toDomainModel())
         } catch (e: Exception) {
             Result.failure(e)
         }
