@@ -344,59 +344,58 @@ Check: visiblePercentage >= 50% ?
 ```
 composeApp/src/
 ├── commonMain/kotlin/dev/dai/compose/visibility/sample/
-│   ├── ui/
-│   │   ├── screen/
-│   │   ├── component/
-│   │   └── viewmodel/
-│   ├── domain/
-│   │   ├── model/
-│   │   ├── repository/
-│   │   └── usecase/
-│   ├── data/
-│   │   ├── repository/
-│   │   ├── remote/
-│   │   └── model/
-│   ├── di/
-│   └── App.kt
-├── commonTest/kotlin/dev/dai/compose/visibility/sample/
-│   ├── domain/
-│   │   ├── model/
-│   │   └── usecase/
-│   ├── data/
-│   │   ├── repository/
-│   │   └── remote/
-│   └── fake/
-├── androidUnitTest/kotlin/dev/dai/compose/visibility/sample/
-│   ├── ui/
-│   │   └── viewmodel/
-│   └── util/
-│       └── MainDispatcherRule.kt
-├── androidMain/kotlin/dev/dai/compose/visibility/sample/
-│   ├── MainActivity.kt
+│   ├── App.kt
 │   └── di/
-│       └── HttpClientFactory.android.kt
+│       └── AppModule.kt
+├── androidMain/kotlin/dev/dai/compose/visibility/sample/
+│   └── MainActivity.kt
 └── iosMain/kotlin/dev/dai/compose/visibility/sample/
-    ├── MainViewController.kt
-    └── di/
-        └── HttpClientFactory.ios.kt
+    └── MainViewController.kt
+
+core/common/
+└── src/commonMain/kotlin/dev/dai/compose/visibility/sample/core/common/
+    └── util & result utilities
+
+core/domain/image/
+├── src/commonMain/kotlin/dev/dai/compose/visibility/sample/core/domain/image/
+│   ├── model/
+│   ├── repository/
+│   └── usecase/
+└── src/commonTest/kotlin/dev/dai/compose/visibility/sample/core/domain/image/
+    ├── model/
+    ├── usecase/
+    └── fake/
+
+core/data/image/
+├── src/commonMain/kotlin/dev/dai/compose/visibility/sample/core/data/image/
+│   ├── di/
+│   ├── mapper/
+│   ├── remote/
+│   │   └── model/
+│   └── repository/
+└── src/commonTest/kotlin/dev/dai/compose/visibility/sample/core/data/image/
+    ├── fake/
+    ├── remote/
+    └── repository/
+
+feature/imagelist/
+├── src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
+│   ├── component/
+│   ├── screen/
+│   ├── viewmodel/
+│   └── di/
+└── src/androidUnitTest/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
+    ├── viewmodel/
+    ├── fake/
+    └── util/
 ```
 
 ### 5.2 パッケージ説明
-
-- **ui/**: UI Layer - Composables, ViewModels
-  - **screen/**: 画面レベルのコンポーザブル
-  - **component/**: 再利用可能なUIコンポーネント
-  - **viewmodel/**: ViewModelクラス
-- **domain/**: Domain Layer - Models, Repository Interfaces, Use Cases
-  - **model/**: ドメインモデル
-  - **repository/**: Repositoryインターフェース
-  - **usecase/**: ビジネスロジック（Use Cases）
-- **data/**: Data Layer - Repository Implementations, Data Sources, DTOs
-  - **repository/**: Repository実装
-  - **remote/**: リモートデータソース
-  - **model/**: DTOs（Data Transfer Objects）
-- **di/**: Dependency Injection configuration (Koin)
-- **fake/**: テスト用Fake実装（commonTest配下）
+- **composeApp**: アプリエントリポイント。App.kt と Koin初期化のみを保持。
+- **core:common**: Result型や拡張関数などプラットフォーム非依存のユーティリティ。
+- **core:domain:image**: ドメインモデル、リポジトリインターフェース、UseCase、および共通テスト。
+- **core:data:image**: データ取得・変換レイヤー、Ktorリモート実装、Mapper、DIモジュール、テスト用のFake。
+- **feature:imagelist**: UIコンポーネント、ViewModel、DI、Androidユニットテスト。
 
 ## 6. onVisibilityChanged API統合設計
 

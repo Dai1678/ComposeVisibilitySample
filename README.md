@@ -88,17 +88,18 @@ Android Studio の Run ボタンから `iosApp` を選択して実行
 
 ```
 ComposeVisibilitySample/
-├── composeApp/           # 共通コード & プラットフォーム固有コード
-│   └── src/
-│       ├── commonMain/   # 共通ビジネスロジック・UI
-│       ├── commonTest/   # 共通テスト
-│       ├── androidMain/  # Android固有コード
-│       ├── androidUnitTest/ # Android Unit Tests
-│       └── iosMain/      # iOS固有コード
-├── iosApp/              # iOSアプリエントリーポイント
-└── docs/                # ドキュメント
-    ├── requirements.md
-    └── architecture.md
+├── build-logic/                         # Convention Plugins
+│   └── convention/
+├── core/
+│   ├── common/                          # 共通ユーティリティ (Result, extensions)
+│   ├── data/
+│   │   └── image/                       # Data層 (Ktor, Repository, Mapper, DI)
+│   └── domain/
+│       └── image/                       # Domain層 (モデル/UseCase)
+├── feature/
+│   └── imagelist/                       # UI層 (Component, Screen, ViewModel, テスト)
+├── composeApp/                          # アプリエントリポイント (DI統合, App.kt, MainActivity)
+└── iosApp/                              # iOSアプリエントリポイント
 ```
 
 詳細なパッケージ構成は [アーキテクチャ設計仕様書](./docs/architecture.md#5-モジュールパッケージ構成) を参照してください。
