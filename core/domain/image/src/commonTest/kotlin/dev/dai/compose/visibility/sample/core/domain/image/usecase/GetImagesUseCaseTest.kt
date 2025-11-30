@@ -1,7 +1,7 @@
 package dev.dai.compose.visibility.sample.core.domain.image.usecase
 
-import dev.dai.compose.visibility.sample.TestData
-import dev.dai.compose.visibility.sample.fake.FakeImageRepository
+import dev.dai.compose.visibility.sample.core.domain.image.TestData
+import dev.dai.compose.visibility.sample.core.domain.image.fake.FakeImageRepository
 import kotlinx.coroutines.test.runTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test

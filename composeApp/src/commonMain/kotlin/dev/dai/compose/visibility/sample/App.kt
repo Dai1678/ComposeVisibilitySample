@@ -3,7 +3,7 @@ package dev.dai.compose.visibility.sample
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import dev.dai.compose.visibility.sample.di.appModule
-import dev.dai.compose.visibility.sample.ui.screen.ImageListScreen
+import dev.dai.compose.visibility.sample.feature.imagelist.screen.ImageListScreen
 import org.koin.compose.KoinApplication
 
 @Composable

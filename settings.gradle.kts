@@ -1,4 +1,4 @@
-rootProject.name = "ComposeVisiblitySample"
+rootProject.name = "ComposeVisibilitySample"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -35,3 +35,5 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":core:common")
 include(":core:domain:image")
+include(":core:data:image")
+include(":feature:imagelist")

@@ -94,7 +94,7 @@ ComposeVisibilitySample/
 │                       └── LogImageVisibilityUseCaseTest.kt
 │
 ├── feature/
-│   └── image-list/                       # UI層モジュール
+│   └── imagelist/                        # UI層モジュール
 │       ├── build.gradle.kts
 │       └── src/
 │           ├── commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
@@ -625,13 +625,13 @@ include(":core:data:image")
 
 ---
 
-### Phase 5: feature:image-list モジュールの作成と移行
+### Phase 5: feature:imagelist モジュールの作成と移行
 
-#### ステップ5-1: feature:image-list ディレクトリ構造の作成
+#### ステップ5-1: feature:imagelist ディレクトリ構造の作成
 ```prompt
-feature/image-list/ ディレクトリを以下の構造で作成してください：
+feature/imagelist/ ディレクトリを以下の構造で作成してください：
 
-feature/image-list/
+feature/imagelist/
 ├── build.gradle.kts
 └── src/
     ├── commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
@@ -645,9 +645,9 @@ feature/image-list/
         └── fake/
 ```
 
-#### ステップ5-2: feature:image-list のbuild.gradle.kts作成
+#### ステップ5-2: feature:imagelist のbuild.gradle.kts作成
 ```prompt
-feature/image-list/build.gradle.kts を作成してください：
+feature/imagelist/build.gradle.kts を作成してください：
 
 ```kotlin
 plugins {
@@ -692,7 +692,7 @@ kotlin {
 ```prompt
 既存のcomposeApp/src/commonMain/kotlin/dev/dai/compose/visibility/sample/ui/component/
 から以下のファイルを
-feature/image-list/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/component/
+feature/imagelist/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/component/
 に移行してください：
 
 - ImageCard.kt
@@ -714,7 +714,7 @@ import dev.dai.compose.visibility.sample.core.domain.image.model.VisibilityLog
 ```prompt
 既存のcomposeApp/src/commonMain/kotlin/dev/dai/compose/visibility/sample/ui/screen/
 から ImageListScreen.kt を
-feature/image-list/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/screen/
+feature/imagelist/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/screen/
 に移行してください。
 
 パッケージ宣言とimport文を更新してください。
@@ -724,7 +724,7 @@ feature/image-list/src/commonMain/kotlin/dev/dai/compose/visibility/sample/featu
 ```prompt
 既存のcomposeApp/src/commonMain/kotlin/dev/dai/compose/visibility/sample/ui/viewmodel/
 から ImageListViewModel.kt を
-feature/image-list/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/viewmodel/
+feature/imagelist/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/viewmodel/
 に移行してください。
 
 パッケージ宣言を変更：
@@ -738,7 +738,7 @@ import dev.dai.compose.visibility.sample.core.domain.image.model.ImageItem
 
 #### ステップ5-6: DIモジュールの作成
 ```prompt
-feature/image-list/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/di/
+feature/imagelist/src/commonMain/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/di/
 に FeatureModule.kt を作成してください：
 
 ```kotlin
@@ -767,7 +767,7 @@ val imageListFeatureModule = module {
 ```prompt
 既存のcomposeApp/src/androidUnitTest/kotlin/dev/dai/compose/visibility/sample/ui/viewmodel/
 から以下のファイルを
-feature/image-list/src/androidUnitTest/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
+feature/imagelist/src/androidUnitTest/kotlin/dev/dai/compose/visibility/sample/feature/imagelist/
 に移行してください：
 
 - viewmodel/ImageListViewModelTest.kt
@@ -798,14 +798,14 @@ import dev.dai.compose.visibility.sample.core.domain.image.usecase.LogImageVisib
 ルートのsettings.gradle.ktsに以下を追加してください：
 
 ```kotlin
-include(":feature:image-list")
+include(":feature:imagelist")
 ```
 
 #### ステップ5-9: ビルド確認
 ```prompt
-./gradlew :feature:image-list:build を実行してビルドエラーを確認してください。
+./gradlew :feature:imagelist:build を実行してビルドエラーを確認してください。
 テストも実行してください：
-./gradlew :feature:image-list:testDebugUnitTest
+./gradlew :feature:imagelist:testDebugUnitTest
 ```
 
 ---
@@ -905,7 +905,7 @@ composeApp/src/commonMain/kotlin/dev/dai/compose/visibility/sample/ 配下の
 - ui/
 
 composeApp/src/commonTest/ も削除してください（各モジュールにテストを移行済み）。
-composeApp/src/androidUnitTest/ も削除してください（feature:image-listに移行済み）。
+composeApp/src/androidUnitTest/ も削除してください（feature:imagelistに移行済み）。
 ```
 
 #### ステップ6-5: MainActivity.ktの確認
@@ -968,7 +968,7 @@ include(":core:data:image")
 include(":core:domain:image")
 
 // Feature modules
-include(":feature:image-list")
+include(":feature:imagelist")
 
 // App module
 include(":composeApp")
@@ -1000,7 +1000,7 @@ include(":composeApp")
 # モジュール別テスト
 ./gradlew :core:domain:image:test
 ./gradlew :core:data:image:test
-./gradlew :feature:image-list:testDebugUnitTest
+./gradlew :feature:imagelist:testDebugUnitTest
 ```
 
 全てのテストがパスすることを確認してください。
@@ -1052,7 +1052,7 @@ docs/architecture.md を更新して、新しいモジュール構成とレイ�
 - [ ] core:common モジュールが作成されている
 - [ ] core:domain:image モジュールが作成され、テストがパスする
 - [ ] core:data:image モジュールが作成され、テストがパスする
-- [ ] feature:image-list モジュールが作成され、テストがパスする
+- [ ] feature:imagelist モジュールが作成され、テストがパスする
 - [ ] composeApp が更新され、不要なコードが削除されている
 - [ ] settings.gradle.kts が正しく更新されている
 - [ ] ./gradlew clean build が成功する
